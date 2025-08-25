@@ -206,5 +206,11 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
+#models
+mistral-7b-instruct-v0.2/
+xlm-roberta-base-language-detection/
+
 #code
-reviews_classification.ipynb
+reviews_rag_pipeline.ipynb
+QM640Capstone-CX-Dashboard.pbix
+review_embeddings_openai.npy
