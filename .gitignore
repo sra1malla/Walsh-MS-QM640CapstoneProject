@@ -211,6 +211,4 @@ mistral-7b-instruct-v0.2/
 xlm-roberta-base-language-detection/
 
 #code
-reviews_rag_pipeline.ipynb
-QM640Capstone-CX-Dashboard.pbix
-review_embeddings_openai.npy
+scored/review_embeddings_openai.npy

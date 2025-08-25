@@ -78,3 +78,19 @@ README.md
 - API keys (e.g., OpenAI) should be set in youy environment.
 - All data exports are in Excel format with UTF-8 encoding.
 - For more details, see the markdown cells in each notebook.
+
+---
+
+### ⚠️ Large Model Files Not Included
+
+Due to size limitations, the following model folders are **not included** in this repository and are listed in `.gitignore`:
+
+- `mistral-7b-instruct-v0.2/`
+- `xlm-roberta-base-language-detection/`
+
+If you need these models:
+
+- Download them from their official sources or your organization’s storage.
+- Place them in the project root under the same folder names.
+
+> **Note:** Only lightweight model files (such as `tokenizer.json` in `sentiment_eng/` and `sentiment_multi/`) are tracked with Git LFS.
