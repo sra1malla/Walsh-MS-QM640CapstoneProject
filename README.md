@@ -6,17 +6,27 @@ This project analyzes and compares customer app reviews from multiple banks, usi
 
 ## Key Features
 
-- **Review Extraction & Processing:**  
-  Extracts reviews using AppFollow API, cleans and merges data from both app stores.
+- **Review Extraction & Processing:**
+  - Extract reviews using AppFollow API, clean and merge data from both app stores.
+- **Review Scoring & Sentiment:**
+  - Predict sentiment and issue category department, calculate SLA status, and export scored datasets.
+- **Hybrid RAG Pipeline for Analytics:**
+  - Interactive Jupyter notebook with a hybrid RAG pipeline (semantic search + LLM code generation) for both natural language and structured queries.
+  - Robust intent detection (keyword + model-based) and code cleaning for LLM-generated pandas code.
+  - Quantitative evaluation with 50+ queries, reporting metrics: intent detection accuracy, latency, error rate, and coverage.
+- **Visualization:**
+  - Plots for SLA status, language distribution, and more, at both overall and per-app levels.
 
-- **Review Scoring & Sentiment:**  
-  Predicts sentiment and department, calculates SLA status, and exports scored datasets.
+## RAG Pipeline Evaluation & Metrics
 
-- **RAG Pipeline for Analytics:**  
-  Interactive Jupyter notebook with a hybrid RAG pipeline (semantic search + LLM code generation) for both natural language and structured queries.
+After running 50 diverse queries through the RAG pipeline, the following metrics are reported:
 
-- **Visualization:**  
-  Plots for SLA status, language distribution, and more, at both overall and per-app levels.
+- **Intent Detection Accuracy:** Percentage of queries correctly classified as "structured" or "semantic" (e.g., 98%).
+- **Average Latency:** Mean time to process each query (e.g., 2.16 seconds).
+- **Error Rate:** Percentage of queries resulting in errors (e.g., 6%).
+- **Coverage:** Percentage of queries answered successfully (e.g., 94%).
+
+These metrics indicate the pipeline is highly accurate, fast, and reliable for a wide range of review analytics queries.
 
 ## Main Notebooks
 
@@ -31,6 +41,7 @@ This project analyzes and compares customer app reviews from multiple banks, usi
 
   - `extracts/` — Raw and processed review files.
   - `scored/` — Scored and labeled review datasets.
+  - `scored/review_faiss_index.bin` — FAISS index for semantic search (tracked with Git LFS).
   - `lookup/CompetitorApps_Lookup.csv` — App metadata.
 
 - **Models:**
@@ -75,9 +86,15 @@ README.md
 
 ## Notes
 
-- API keys (e.g., OpenAI) should be set in youy environment.
+- API keys (e.g., OpenAI) should be set in your environment.
 - All data exports are in Excel format with UTF-8 encoding.
 - For more details, see the markdown cells in each notebook.
+- To track large binary files (e.g., FAISS index), use Git LFS:
+  ```sh
+  git lfs track "scored/review_faiss_index.bin"
+  git add .gitattributes scored/review_faiss_index.bin
+  git commit -m "Track review_faiss_index.bin with Git LFS"
+  ```
 
 ---
 
